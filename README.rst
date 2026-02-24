@@ -1,3 +1,6 @@
+[WIP]
+*****
+
 .. zephyr:code-sample:: lvgl
    :name: LVGL basic sample
    :relevant-api: display_interface input_interface
