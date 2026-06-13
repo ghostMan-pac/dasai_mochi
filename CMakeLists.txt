@@ -8,4 +8,4 @@ project(lvgl)
 FILE(GLOB app_sources src/*.c )
 
 target_sources(app PRIVATE ${app_sources})
-add_subdirectory(git_frames)
+add_subdirectory(src/gif_frames)
