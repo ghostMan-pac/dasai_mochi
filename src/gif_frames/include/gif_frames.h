@@ -8,3 +8,4 @@
 #include "../squint/squint.h"
 #include "../zephyr/zephyr.h"
 #include "../microchip/microchip.h"
+#include "../zephyr_mchp_scroll/zephyr_mchp_scroll.h"
