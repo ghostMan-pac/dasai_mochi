@@ -178,23 +178,30 @@ static const lv_image_dsc_t *zephyr_frames[] = {
 };
 
 static const lv_image_dsc_t *microchip_frames[] = {
-    &microchip_frame_000, &microchip_frame_001, &microchip_frame_002, &microchip_frame_003,
-    &microchip_frame_004, &microchip_frame_005, &microchip_frame_006, &microchip_frame_007,
-    &microchip_frame_008, &microchip_frame_009, &microchip_frame_010, &microchip_frame_011,
-    &microchip_frame_012, &microchip_frame_013, &microchip_frame_014, &microchip_frame_015,
+    &microchip_frame_000, &microchip_frame_001, &microchip_frame_002,
+    &microchip_frame_003, &microchip_frame_004, &microchip_frame_005,
+    &microchip_frame_006, &microchip_frame_007, &microchip_frame_008,
+    &microchip_frame_009, &microchip_frame_010, &microchip_frame_011,
+    &microchip_frame_012, &microchip_frame_013, &microchip_frame_014,
+    &microchip_frame_015,
 };
 
 static const lv_image_dsc_t *zephyr_mchp_scroll_frames[] = {
-    &zephyr_mchp_scroll_frame_000, &zephyr_mchp_scroll_frame_001, &zephyr_mchp_scroll_frame_002,
-    &zephyr_mchp_scroll_frame_003, &zephyr_mchp_scroll_frame_004, &zephyr_mchp_scroll_frame_005,
-    &zephyr_mchp_scroll_frame_006, &zephyr_mchp_scroll_frame_007, &zephyr_mchp_scroll_frame_008,
-    &zephyr_mchp_scroll_frame_009, &zephyr_mchp_scroll_frame_010, &zephyr_mchp_scroll_frame_011,
-    &zephyr_mchp_scroll_frame_012, &zephyr_mchp_scroll_frame_013, &zephyr_mchp_scroll_frame_014,
-    &zephyr_mchp_scroll_frame_015, &zephyr_mchp_scroll_frame_016, &zephyr_mchp_scroll_frame_017,
-    &zephyr_mchp_scroll_frame_018, &zephyr_mchp_scroll_frame_019, &zephyr_mchp_scroll_frame_020,
-    &zephyr_mchp_scroll_frame_021, &zephyr_mchp_scroll_frame_022, &zephyr_mchp_scroll_frame_023,
-    &zephyr_mchp_scroll_frame_024, &zephyr_mchp_scroll_frame_025, &zephyr_mchp_scroll_frame_026,
-    &zephyr_mchp_scroll_frame_027, &zephyr_mchp_scroll_frame_028, &zephyr_mchp_scroll_frame_029,
+    &zephyr_mchp_scroll_frame_000, &zephyr_mchp_scroll_frame_001,
+    &zephyr_mchp_scroll_frame_002, &zephyr_mchp_scroll_frame_003,
+    &zephyr_mchp_scroll_frame_004, &zephyr_mchp_scroll_frame_005,
+    &zephyr_mchp_scroll_frame_006, &zephyr_mchp_scroll_frame_007,
+    &zephyr_mchp_scroll_frame_008, &zephyr_mchp_scroll_frame_009,
+    &zephyr_mchp_scroll_frame_010, &zephyr_mchp_scroll_frame_011,
+    &zephyr_mchp_scroll_frame_012, &zephyr_mchp_scroll_frame_013,
+    &zephyr_mchp_scroll_frame_014, &zephyr_mchp_scroll_frame_015,
+    &zephyr_mchp_scroll_frame_016, &zephyr_mchp_scroll_frame_017,
+    &zephyr_mchp_scroll_frame_018, &zephyr_mchp_scroll_frame_019,
+    &zephyr_mchp_scroll_frame_020, &zephyr_mchp_scroll_frame_021,
+    &zephyr_mchp_scroll_frame_022, &zephyr_mchp_scroll_frame_023,
+    &zephyr_mchp_scroll_frame_024, &zephyr_mchp_scroll_frame_025,
+    &zephyr_mchp_scroll_frame_026, &zephyr_mchp_scroll_frame_027,
+    &zephyr_mchp_scroll_frame_028, &zephyr_mchp_scroll_frame_029,
     &zephyr_mchp_scroll_frame_030, &zephyr_mchp_scroll_frame_031,
 };
 
@@ -222,8 +229,8 @@ static void on_button_press(struct input_event *evt, void *user_data) {
     type = type + evt->value;
   }
 
-  type = (type < 0) ? 7 : type;
-  type = (type > 7) ? 0 : type;
+  type = (type < 0) ? 10 : type;
+  type = (type > 10) ? 0 : type;
 
   switch (type) {
   case 0:
@@ -258,15 +265,15 @@ static void on_button_press(struct input_event *evt, void *user_data) {
     frames = squint_frames;
     frame_max_count = 39;
     break;
-  case 18:
+  case 8:
     frames = zephyr_frames;
     frame_max_count = 16;
     break;
-  case 20:
+  case 9:
     frames = microchip_frames;
     frame_max_count = 16;
     break;
-  case 22:
+  case 10:
     frames = zephyr_mchp_scroll_frames;
     frame_max_count = 32;
     break;
