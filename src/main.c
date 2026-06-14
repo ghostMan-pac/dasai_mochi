@@ -177,6 +177,13 @@ static const lv_image_dsc_t *zephyr_frames[] = {
     &zephyr_frame_012, &zephyr_frame_013, &zephyr_frame_014, &zephyr_frame_015,
 };
 
+static const lv_image_dsc_t *microchip_frames[] = {
+    &microchip_frame_000, &microchip_frame_001, &microchip_frame_002, &microchip_frame_003,
+    &microchip_frame_004, &microchip_frame_005, &microchip_frame_006, &microchip_frame_007,
+    &microchip_frame_008, &microchip_frame_009, &microchip_frame_010, &microchip_frame_011,
+    &microchip_frame_012, &microchip_frame_013, &microchip_frame_014, &microchip_frame_015,
+};
+
 static const lv_image_dsc_t **frames = adore_frames;
 
 #define FRAME_COUNT 24
@@ -239,6 +246,10 @@ static void on_button_press(struct input_event *evt, void *user_data) {
     break;
   case 18:
     frames = zephyr_frames;
+    frame_max_count = 16;
+    break;
+  case 20:
+    frames = microchip_frames;
     frame_max_count = 16;
     break;
   default:
