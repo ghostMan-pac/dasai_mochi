@@ -145,10 +145,12 @@ static const lv_image_dsc_t **frames = adore_frames;
 
 static lv_obj_t *img;
 static uint8_t current_frame = 0;
+//todo: have a method to calculate the number of frames
+static uint8_t frame_max_count = 0;
 
 static void anim_cb(lv_timer_t *t) {
   current_frame++;
-  if (current_frame >= FRAME_COUNT) {
+  if (current_frame >= frame_max_count) {
     current_frame = 0;
   }
   lv_image_set_src(img, frames[current_frame]);
@@ -159,30 +161,33 @@ static void on_button_press(struct input_event *evt, void *user_data) {
   switch (type) {
   case 2:
     frames = adore_frames;
+    frame_max_count = 24;
     break;
   case 4:
     frames = buzzing_frames;
-
+    frame_max_count = 66;
     break;
   case 6:
     frames = dizzy_frames;
-
+    frame_max_count = 46;
     break;
   case 8:
     frames = down_frames;
-
+    frame_max_count = 46;
     break;
   case 10:
     frames = energetic_frames;
-
+    frame_max_count = 98;
     break;
   case 12:
     frames = happ_frames;
+    frame_max_count = 74;
     break;
   default:
     if (!(type & 1)) {
       type = 0;
       frames = adore_frames;
+      frame_max_count = 24;
     }
   }
   printf("mone enne vilichittund %d\n", type);
