@@ -10,38 +10,11 @@
 #include <zephyr/drivers/display.h>
 #include <zephyr/input/input.h>
 #include <zephyr/kernel.h>
-
 #define LOG_LEVEL CONFIG_LOG_DEFAULT_LEVEL
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(app);
-#define DECLARE_FRAME(n) LV_IMG_DECLARE(adore_frame_##n)
 
-DECLARE_FRAME(000);
-DECLARE_FRAME(001);
-DECLARE_FRAME(002);
-DECLARE_FRAME(003);
-DECLARE_FRAME(004);
-DECLARE_FRAME(005);
-DECLARE_FRAME(006);
-DECLARE_FRAME(007);
-DECLARE_FRAME(008);
-DECLARE_FRAME(009);
-DECLARE_FRAME(010);
-DECLARE_FRAME(011);
-DECLARE_FRAME(012);
-DECLARE_FRAME(013);
-DECLARE_FRAME(014);
-DECLARE_FRAME(015);
-DECLARE_FRAME(016);
-DECLARE_FRAME(017);
-DECLARE_FRAME(018);
-DECLARE_FRAME(019);
-DECLARE_FRAME(020);
-DECLARE_FRAME(021);
-DECLARE_FRAME(022);
-DECLARE_FRAME(023);
-DECLARE_FRAME(024);
-
+#include "gif_frames/include/gif_frames.h"
 static const lv_image_dsc_t *adore_frames[] = {
     &adore_frame_000, &adore_frame_001, &adore_frame_002, &adore_frame_003,
     &adore_frame_004, &adore_frame_005, &adore_frame_006, &adore_frame_007,
@@ -52,75 +25,6 @@ static const lv_image_dsc_t *adore_frames[] = {
     &adore_frame_024,
 };
 
-#define DECLARE_FRAME_BUZZ(n) LV_IMG_DECLARE(buzzing_frame_##n)
-
-DECLARE_FRAME_BUZZ(000);
-DECLARE_FRAME_BUZZ(001);
-DECLARE_FRAME_BUZZ(002);
-DECLARE_FRAME_BUZZ(003);
-DECLARE_FRAME_BUZZ(004);
-DECLARE_FRAME_BUZZ(005);
-DECLARE_FRAME_BUZZ(006);
-DECLARE_FRAME_BUZZ(007);
-DECLARE_FRAME_BUZZ(008);
-DECLARE_FRAME_BUZZ(009);
-DECLARE_FRAME_BUZZ(010);
-DECLARE_FRAME_BUZZ(011);
-DECLARE_FRAME_BUZZ(012);
-DECLARE_FRAME_BUZZ(013);
-DECLARE_FRAME_BUZZ(014);
-DECLARE_FRAME_BUZZ(015);
-DECLARE_FRAME_BUZZ(016);
-DECLARE_FRAME_BUZZ(017);
-DECLARE_FRAME_BUZZ(018);
-DECLARE_FRAME_BUZZ(019);
-DECLARE_FRAME_BUZZ(020);
-DECLARE_FRAME_BUZZ(021);
-DECLARE_FRAME_BUZZ(022);
-DECLARE_FRAME_BUZZ(023);
-DECLARE_FRAME_BUZZ(024);
-DECLARE_FRAME_BUZZ(025);
-DECLARE_FRAME_BUZZ(026);
-DECLARE_FRAME_BUZZ(027);
-DECLARE_FRAME_BUZZ(028);
-DECLARE_FRAME_BUZZ(029);
-DECLARE_FRAME_BUZZ(030);
-DECLARE_FRAME_BUZZ(031);
-DECLARE_FRAME_BUZZ(032);
-DECLARE_FRAME_BUZZ(033);
-DECLARE_FRAME_BUZZ(034);
-DECLARE_FRAME_BUZZ(035);
-DECLARE_FRAME_BUZZ(036);
-DECLARE_FRAME_BUZZ(037);
-DECLARE_FRAME_BUZZ(038);
-DECLARE_FRAME_BUZZ(039);
-DECLARE_FRAME_BUZZ(040);
-DECLARE_FRAME_BUZZ(041);
-DECLARE_FRAME_BUZZ(042);
-DECLARE_FRAME_BUZZ(043);
-DECLARE_FRAME_BUZZ(044);
-DECLARE_FRAME_BUZZ(045);
-DECLARE_FRAME_BUZZ(046);
-DECLARE_FRAME_BUZZ(047);
-DECLARE_FRAME_BUZZ(048);
-DECLARE_FRAME_BUZZ(049);
-DECLARE_FRAME_BUZZ(050);
-DECLARE_FRAME_BUZZ(051);
-DECLARE_FRAME_BUZZ(052);
-DECLARE_FRAME_BUZZ(053);
-DECLARE_FRAME_BUZZ(054);
-DECLARE_FRAME_BUZZ(055);
-DECLARE_FRAME_BUZZ(056);
-DECLARE_FRAME_BUZZ(057);
-DECLARE_FRAME_BUZZ(058);
-DECLARE_FRAME_BUZZ(059);
-DECLARE_FRAME_BUZZ(060);
-DECLARE_FRAME_BUZZ(061);
-DECLARE_FRAME_BUZZ(062);
-DECLARE_FRAME_BUZZ(063);
-DECLARE_FRAME_BUZZ(064);
-DECLARE_FRAME_BUZZ(065);
-DECLARE_FRAME_BUZZ(066);
 static const lv_image_dsc_t *buzzing_frames[] = {
     &buzzing_frame_000, &buzzing_frame_001, &buzzing_frame_002,
     &buzzing_frame_003, &buzzing_frame_004, &buzzing_frame_005,
@@ -145,6 +49,94 @@ static const lv_image_dsc_t *buzzing_frames[] = {
     &buzzing_frame_060, &buzzing_frame_061, &buzzing_frame_062,
     &buzzing_frame_063, &buzzing_frame_064, &buzzing_frame_065,
     &buzzing_frame_066,
+};
+
+static const lv_image_dsc_t *dizzy_frames[] = {
+    &dizzy_frame_000, &dizzy_frame_001, &dizzy_frame_002, &dizzy_frame_003,
+    &dizzy_frame_004, &dizzy_frame_005, &dizzy_frame_006, &dizzy_frame_007,
+    &dizzy_frame_008, &dizzy_frame_009, &dizzy_frame_010, &dizzy_frame_011,
+    &dizzy_frame_012, &dizzy_frame_013, &dizzy_frame_014, &dizzy_frame_015,
+    &dizzy_frame_016, &dizzy_frame_017, &dizzy_frame_018, &dizzy_frame_019,
+    &dizzy_frame_020, &dizzy_frame_021, &dizzy_frame_022, &dizzy_frame_023,
+    &dizzy_frame_024, &dizzy_frame_025, &dizzy_frame_026, &dizzy_frame_027,
+    &dizzy_frame_028, &dizzy_frame_029, &dizzy_frame_030, &dizzy_frame_031,
+    &dizzy_frame_032, &dizzy_frame_033, &dizzy_frame_034, &dizzy_frame_035,
+    &dizzy_frame_036, &dizzy_frame_037, &dizzy_frame_038, &dizzy_frame_039,
+    &dizzy_frame_040, &dizzy_frame_041, &dizzy_frame_042, &dizzy_frame_043,
+    &dizzy_frame_044, &dizzy_frame_045, &dizzy_frame_046,
+};
+
+static const lv_image_dsc_t *down_frames[] = {
+    &down_frame_000, &down_frame_001, &down_frame_002, &down_frame_003,
+    &down_frame_004, &down_frame_005, &down_frame_006, &down_frame_007,
+    &down_frame_008, &down_frame_009, &down_frame_010, &down_frame_011,
+    &down_frame_012, &down_frame_013, &down_frame_014, &down_frame_015,
+    &down_frame_016, &down_frame_017, &down_frame_018, &down_frame_019,
+    &down_frame_020, &down_frame_021, &down_frame_022, &down_frame_023,
+    &down_frame_024, &down_frame_025, &down_frame_026, &down_frame_027,
+    &down_frame_028, &down_frame_029, &down_frame_030, &down_frame_031,
+    &down_frame_032, &down_frame_033, &down_frame_034, &down_frame_035,
+    &down_frame_036, &down_frame_037, &down_frame_038, &down_frame_039,
+    &down_frame_040, &down_frame_041, &down_frame_042, &down_frame_043,
+    &down_frame_044, &down_frame_045, &down_frame_046,
+};
+
+static const lv_image_dsc_t *energetic_frames[] = {
+    &energetic_frame_000, &energetic_frame_001, &energetic_frame_002,
+    &energetic_frame_003, &energetic_frame_004, &energetic_frame_005,
+    &energetic_frame_006, &energetic_frame_007, &energetic_frame_008,
+    &energetic_frame_009, &energetic_frame_010, &energetic_frame_011,
+    &energetic_frame_012, &energetic_frame_013, &energetic_frame_014,
+    &energetic_frame_015, &energetic_frame_016, &energetic_frame_017,
+    &energetic_frame_018, &energetic_frame_019, &energetic_frame_020,
+    &energetic_frame_021, &energetic_frame_022, &energetic_frame_023,
+    &energetic_frame_024, &energetic_frame_025, &energetic_frame_026,
+    &energetic_frame_027, &energetic_frame_028, &energetic_frame_029,
+    &energetic_frame_030, &energetic_frame_031, &energetic_frame_032,
+    &energetic_frame_033, &energetic_frame_034, &energetic_frame_035,
+    &energetic_frame_036, &energetic_frame_037, &energetic_frame_038,
+    &energetic_frame_039, &energetic_frame_040, &energetic_frame_041,
+    &energetic_frame_042, &energetic_frame_043, &energetic_frame_044,
+    &energetic_frame_045, &energetic_frame_046, &energetic_frame_047,
+    &energetic_frame_048, &energetic_frame_049, &energetic_frame_050,
+    &energetic_frame_051, &energetic_frame_052, &energetic_frame_053,
+    &energetic_frame_054, &energetic_frame_055, &energetic_frame_056,
+    &energetic_frame_057, &energetic_frame_058, &energetic_frame_059,
+    &energetic_frame_060, &energetic_frame_061, &energetic_frame_062,
+    &energetic_frame_063, &energetic_frame_064, &energetic_frame_065,
+    &energetic_frame_066, &energetic_frame_067, &energetic_frame_068,
+    &energetic_frame_069, &energetic_frame_070, &energetic_frame_071,
+    &energetic_frame_072, &energetic_frame_073, &energetic_frame_074,
+    &energetic_frame_075, &energetic_frame_076, &energetic_frame_077,
+    &energetic_frame_078, &energetic_frame_079, &energetic_frame_080,
+    &energetic_frame_081, &energetic_frame_082, &energetic_frame_083,
+    &energetic_frame_084, &energetic_frame_085, &energetic_frame_086,
+    &energetic_frame_087, &energetic_frame_088, &energetic_frame_089,
+    &energetic_frame_090, &energetic_frame_091, &energetic_frame_092,
+    &energetic_frame_093, &energetic_frame_094, &energetic_frame_095,
+    &energetic_frame_096, &energetic_frame_097, &energetic_frame_098,
+};
+
+static const lv_image_dsc_t *happ_frames[] = {
+    &happ_frame_000, &happ_frame_001, &happ_frame_002, &happ_frame_003,
+    &happ_frame_004, &happ_frame_005, &happ_frame_006, &happ_frame_007,
+    &happ_frame_008, &happ_frame_009, &happ_frame_010, &happ_frame_011,
+    &happ_frame_012, &happ_frame_013, &happ_frame_014, &happ_frame_015,
+    &happ_frame_016, &happ_frame_017, &happ_frame_018, &happ_frame_019,
+    &happ_frame_020, &happ_frame_021, &happ_frame_022, &happ_frame_023,
+    &happ_frame_024, &happ_frame_025, &happ_frame_026, &happ_frame_027,
+    &happ_frame_028, &happ_frame_029, &happ_frame_030, &happ_frame_031,
+    &happ_frame_032, &happ_frame_033, &happ_frame_034, &happ_frame_035,
+    &happ_frame_036, &happ_frame_037, &happ_frame_038, &happ_frame_039,
+    &happ_frame_040, &happ_frame_041, &happ_frame_042, &happ_frame_043,
+    &happ_frame_044, &happ_frame_045, &happ_frame_046, &happ_frame_047,
+    &happ_frame_048, &happ_frame_049, &happ_frame_050, &happ_frame_051,
+    &happ_frame_052, &happ_frame_053, &happ_frame_054, &happ_frame_055,
+    &happ_frame_056, &happ_frame_057, &happ_frame_058, &happ_frame_059,
+    &happ_frame_060, &happ_frame_061, &happ_frame_062, &happ_frame_063,
+    &happ_frame_064, &happ_frame_065, &happ_frame_066, &happ_frame_067,
+    &happ_frame_068, &happ_frame_069, &happ_frame_070, &happ_frame_071,
+    &happ_frame_072, &happ_frame_073, &happ_frame_074,
 };
 
 static const lv_image_dsc_t **frames = adore_frames;
@@ -173,21 +165,24 @@ static void on_button_press(struct input_event *evt, void *user_data) {
 
     break;
   case 6:
-    frames = adore_frames;
+    frames = dizzy_frames;
 
     break;
   case 8:
-    frames = buzzing_frames;
+    frames = down_frames;
 
     break;
   case 10:
-    frames = adore_frames;
+    frames = energetic_frames;
 
+    break;
+  case 12:
+    frames = happ_frames;
     break;
   default:
     if (!(type & 1)) {
       type = 0;
-      frames = buzzing_frames;
+      frames = adore_frames;
     }
   }
   printf("mone enne vilichittund %d\n", type);
