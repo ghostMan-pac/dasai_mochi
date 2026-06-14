@@ -4,3 +4,5 @@
 #include "../down/down.h"
 #include "../energetic/energetic.h"
 #include "../happ/happ.h"
+#include "../sparkle/sparkle.h"
+#include "../squint/squint.h"

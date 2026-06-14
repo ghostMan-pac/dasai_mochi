@@ -139,13 +139,44 @@ static const lv_image_dsc_t *happ_frames[] = {
     &happ_frame_072, &happ_frame_073, &happ_frame_074,
 };
 
+static const lv_image_dsc_t *squint_frames[] = {
+    &squint_frame_000, &squint_frame_001, &squint_frame_002, &squint_frame_003,
+    &squint_frame_004, &squint_frame_005, &squint_frame_006, &squint_frame_007,
+    &squint_frame_008, &squint_frame_009, &squint_frame_010, &squint_frame_011,
+    &squint_frame_012, &squint_frame_013, &squint_frame_014, &squint_frame_015,
+    &squint_frame_016, &squint_frame_017, &squint_frame_018, &squint_frame_019,
+    &squint_frame_020, &squint_frame_021, &squint_frame_022, &squint_frame_023,
+    &squint_frame_024, &squint_frame_025, &squint_frame_026, &squint_frame_027,
+    &squint_frame_028, &squint_frame_029, &squint_frame_030, &squint_frame_031,
+    &squint_frame_032, &squint_frame_033, &squint_frame_034, &squint_frame_035,
+    &squint_frame_036, &squint_frame_037, &squint_frame_038, &squint_frame_039,
+};
+
+static const lv_image_dsc_t *sparkle_frames[] = {
+    &sparkle_frame_000, &sparkle_frame_001, &sparkle_frame_002,
+    &sparkle_frame_003, &sparkle_frame_004, &sparkle_frame_005,
+    &sparkle_frame_006, &sparkle_frame_007, &sparkle_frame_008,
+    &sparkle_frame_009, &sparkle_frame_010, &sparkle_frame_011,
+    &sparkle_frame_012, &sparkle_frame_013, &sparkle_frame_014,
+    &sparkle_frame_015, &sparkle_frame_016, &sparkle_frame_017,
+    &sparkle_frame_018, &sparkle_frame_019, &sparkle_frame_020,
+    &sparkle_frame_021, &sparkle_frame_022, &sparkle_frame_023,
+    &sparkle_frame_024, &sparkle_frame_025, &sparkle_frame_026,
+    &sparkle_frame_027, &sparkle_frame_028, &sparkle_frame_029,
+    &sparkle_frame_030, &sparkle_frame_031, &sparkle_frame_032,
+    &sparkle_frame_033, &sparkle_frame_034, &sparkle_frame_035,
+    &sparkle_frame_036, &sparkle_frame_037, &sparkle_frame_038,
+    &sparkle_frame_039, &sparkle_frame_040, &sparkle_frame_041,
+    &sparkle_frame_042, &sparkle_frame_043, &sparkle_frame_044,
+};
+
 static const lv_image_dsc_t **frames = adore_frames;
 
 #define FRAME_COUNT 24
 
 static lv_obj_t *img;
 static uint8_t current_frame = 0;
-//todo: have a method to calculate the number of frames
+// todo: have a method to calculate the number of frames
 static uint8_t frame_max_count = 0;
 
 static void anim_cb(lv_timer_t *t) {
@@ -182,6 +213,14 @@ static void on_button_press(struct input_event *evt, void *user_data) {
   case 12:
     frames = happ_frames;
     frame_max_count = 74;
+    break;
+  case 14:
+    frames = sparkle_frames;
+    frame_max_count = 44;
+    break;
+  case 16:
+    frames = squint_frames;
+    frame_max_count = 39;
     break;
   default:
     if (!(type & 1)) {
