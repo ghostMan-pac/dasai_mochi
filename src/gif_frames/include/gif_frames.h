@@ -6,3 +6,4 @@
 #include "../happ/happ.h"
 #include "../sparkle/sparkle.h"
 #include "../squint/squint.h"
+#include "../zephyr/zephyr.h"

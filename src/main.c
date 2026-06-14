@@ -170,6 +170,13 @@ static const lv_image_dsc_t *sparkle_frames[] = {
     &sparkle_frame_042, &sparkle_frame_043, &sparkle_frame_044,
 };
 
+static const lv_image_dsc_t *zephyr_frames[] = {
+    &zephyr_frame_000, &zephyr_frame_001, &zephyr_frame_002, &zephyr_frame_003,
+    &zephyr_frame_004, &zephyr_frame_005, &zephyr_frame_006, &zephyr_frame_007,
+    &zephyr_frame_008, &zephyr_frame_009, &zephyr_frame_010, &zephyr_frame_011,
+    &zephyr_frame_012, &zephyr_frame_013, &zephyr_frame_014, &zephyr_frame_015,
+};
+
 static const lv_image_dsc_t **frames = adore_frames;
 
 #define FRAME_COUNT 24
@@ -221,6 +228,10 @@ static void on_button_press(struct input_event *evt, void *user_data) {
   case 16:
     frames = squint_frames;
     frame_max_count = 39;
+    break;
+  case 18:
+    frames = zephyr_frames;
+    frame_max_count = 16;
     break;
   default:
     if (!(type & 1)) {
