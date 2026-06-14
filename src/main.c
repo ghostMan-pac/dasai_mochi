@@ -188,53 +188,53 @@ static void anim_cb(lv_timer_t *t) {
 }
 
 static void on_button_press(struct input_event *evt, void *user_data) {
-  static uint8_t type = 0;
+  static int8_t type = 0;
+
+  if (evt->code == INPUT_REL_WHEEL) {
+    type = type + evt->value;
+  }
+
+  type = (type < 0) ? 7 : type;
+  type = (type > 7) ? 0 : type;
+
   switch (type) {
-  case 2:
+  case 0:
     frames = adore_frames;
     frame_max_count = 24;
     break;
-  case 4:
+  case 1:
     frames = buzzing_frames;
     frame_max_count = 66;
     break;
-  case 6:
+  case 2:
     frames = dizzy_frames;
     frame_max_count = 46;
     break;
-  case 8:
+  case 3:
     frames = down_frames;
     frame_max_count = 46;
     break;
-  case 10:
+  case 4:
     frames = energetic_frames;
     frame_max_count = 98;
     break;
-  case 12:
+  case 5:
     frames = happ_frames;
     frame_max_count = 74;
     break;
-  case 14:
+  case 6:
     frames = sparkle_frames;
     frame_max_count = 44;
     break;
-  case 16:
+  case 7:
     frames = squint_frames;
     frame_max_count = 39;
     break;
   default:
-    if (!(type & 1)) {
-      type = 0;
-      frames = adore_frames;
-      frame_max_count = 24;
-    }
+    printf("njn defaultil kudungi %d\n", type);
   }
   printf("mone enne vilichittund %d\n", type);
-  type++;
 }
-
-// struct k_timer my_timer;
-// K_TIMER_DEFINE(my_timer, on_button_press, NULL);
 
 INPUT_CALLBACK_DEFINE(NULL, on_button_press, NULL);
 
@@ -253,9 +253,6 @@ int main(void) {
     LOG_ERR("Failed to turn blanking off (error %d)", ret);
     return 0;
   }
-  //   k_timer_init(&my_timer, on_button_press, NULL);
-
-  //   k_timer_start(&my_timer, K_SECONDS(1), K_SECONDS(5));
   /* Create image object */
   img = lv_image_create(lv_screen_active());
   lv_image_set_src(img, frames[0]);
