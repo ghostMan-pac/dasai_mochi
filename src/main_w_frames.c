@@ -13,7 +13,6 @@
 #define LOG_LEVEL CONFIG_LOG_DEFAULT_LEVEL
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(app);
-
 #include "gif_frames/include/gif_frames.h"
 static const lv_image_dsc_t *adore_frames[] = {
     &adore_frame_000, &adore_frame_001, &adore_frame_002, &adore_frame_003,

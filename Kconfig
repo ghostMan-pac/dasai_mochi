@@ -3,10 +3,13 @@
 
 source "Kconfig.zephyr"
 
-mainmenu "LVGL Sample"
+config USE_FRAMES_METHOD
+	bool "uses frame method"
+	help
+	  this will compile the c file which will contain the frames as c headers.
 
-config RESET_COUNTER_SW0
-	bool "Reset counter when sw0 is pressed"
-	depends on $(dt_alias_enabled,sw0)
-	select GPIO
-	default y
+
+config USE_GIF_METHOD
+	bool "uses gif method"
+	help
+	  this will compile the c file which uses gifs with littlefs
